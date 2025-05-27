@@ -2,28 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/AngelCruzGtur/Jenkins-Integration.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh 'echo "Compiling code..."'
-                // example: sh 'javac src/HelloWorld.java'
+                sh 'echo Building project...'
+                sh 'mkdir -p build'
+                sh 'javac -d build src/HelloWorld.java'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'echo "Running tests..."'
+                sh 'echo No tests yet'
             }
         }
 
-        stage('Deploy') {
+        stage('Done') {
             steps {
-                sh 'echo "Deployment step here..."'
+                echo 'Build completed!'
             }
         }
     }
