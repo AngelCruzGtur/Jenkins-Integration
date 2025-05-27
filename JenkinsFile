@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/AngelCruzGtur/Jenkins-Integration.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'echo "Compiling code..."'
+                // example: sh 'javac src/HelloWorld.java'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deployment step here..."'
+            }
+        }
+    }
+}
