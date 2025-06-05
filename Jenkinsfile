@@ -4,20 +4,20 @@ pipeline {
 	stages {
 		stage('Build Java') {
 			steps {
-				bat 'mkdir build'
-				bat 'javac -d build src\\HelloWorld.java'
+				sh 'mkdir -p build'
+				sh 'javac -d build src/HelloWorld.java'
 			}
 		}
 
 		stage('Run Java') {
 			steps {
-				bat 'java -cp build HelloWorld'
+				sh 'java -cp build HelloWorld'
 			}
 		}
 
-		stage('Run Python Tests') {
+		stage('Run Shell Script') {
 			steps {
-				bat 'run_tests.bat'
+				sh './Hello_world.sh'
 			}
 		}
 	}
