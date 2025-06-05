@@ -1,18 +1,11 @@
 pipeline {
-    agent any
+	agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                bat 'mkdir build'
-                bat 'javac -d build src\\HelloWorld.java'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                bat 'java -cp build HelloWorld'
-            }
-        }
-    }
+	stages {
+		stage('Run Tests') {
+			steps {
+				bat 'run_tests.bat'
+			}
+		}
+	}
 }
